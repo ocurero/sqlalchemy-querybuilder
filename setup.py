@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 requires = ['SQLAlchemy']
 
 setup(
-    name=['sqlalchemy-querybuilder'],
+    name='sqlalchemy-querybuilder',
     version='0.1',
 
     license='Apache License version 2',
@@ -26,8 +26,7 @@ setup(
 
     platforms=['Any'],
 
-    provides=['sqlalchemy_querybuilder',
-              ],
+    provides=['sqlalchemy_querybuilder'],
 
     packages=find_packages(),
 
