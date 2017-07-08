@@ -1,13 +1,32 @@
 from setuptools import setup, find_packages
+import os
 
 requires = ['SQLAlchemy']
 
+
+def read(filename):
+    """
+    Returns the contents of the given package file.
+    Args:
+        filename (str): The name of the file to read, relative to the current
+            directory.
+    Returns:
+        str: The contents of the given package file.
+    """
+
+    path = os.path.join(os.path.dirname(__file__), filename)
+
+    with open(path) as f:
+        return f.read()
+
+
 setup(
     name='sqlalchemy-querybuilder',
-    version='0.1',
+    version='0.1a',
 
     license='Apache License version 2',
     description='Build sqlalchemy queries from jQuery-Query json',
+    ong_description=read("README.rst"),
 
     author='Oscar Curero',
     author_email='oscar@curero.es',
