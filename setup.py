@@ -22,11 +22,11 @@ def read(filename):
 
 setup(
     name='sqlalchemy-querybuilder',
-    version='0.1a',
+    version='0.1b',
 
     license='Apache License version 2',
     description='Build sqlalchemy queries from jQuery-Query json',
-    ong_description=read("README.rst"),
+    long_description=read("README.rst"),
 
     author='Oscar Curero',
     author_email='oscar@curero.es',
