@@ -1,5 +1,8 @@
 from setuptools import setup, find_packages
+from subprocess import call
 import os
+
+call(['pandoc', 'README.md', '-oREADME.rst'])
 
 requires = ['SQLAlchemy']
 
