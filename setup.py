@@ -2,25 +2,17 @@ from setuptools import setup, find_packages
 from subprocess import call
 import os
 
+
 call(['pandoc', 'README.md', '-oREADME.rst'])
 
 requires = ['SQLAlchemy']
 
-
-def read(filename):
-    """
-    Returns the contents of the given package file.
-    Args:
-        filename (str): The name of the file to read, relative to the current
-            directory.
-    Returns:
-        str: The contents of the given package file.
-    """
-
-    path = os.path.join(os.path.dirname(__file__), filename)
-
-    with open(path) as f:
-        return f.read()
+try:
+    from pypandoc import convert
+    read_md = lambda f: convert(f, 'rst', 'md')
+except ImportError:
+    print("warning: pypandoc module not found, could not convert Markdown to RST")
+    read_md = lambda f: open(f, 'r').read()
 
 
 setup(
@@ -29,7 +21,7 @@ setup(
 
     license='Apache License version 2',
     description='Build sqlalchemy queries from jQuery-Query json',
-    long_description=read("README.rst"),
+    long_description=read_md("README.md"),
 
     author='Oscar Curero',
     author_email='oscar@curero.es',
