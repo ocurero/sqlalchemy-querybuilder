@@ -1,18 +1,14 @@
 from setuptools import setup, find_packages
-from subprocess import call
-import os
-
-
-call(['pandoc', 'README.md', '-oREADME.rst'])
 
 requires = ['SQLAlchemy']
 
 try:
     from pypandoc import convert
-    read_md = lambda f: convert(f, 'rst', 'md')
+    def read_md(f): return convert(f, 'rst', 'md')
+
 except ImportError:
-    print("warning: pypandoc module not found, could not convert Markdown to RST")
-    read_md = lambda f: open(f, 'r').read()
+    print("warning: pypandoc module not found, convert Markdown to RST failed")
+    def read_md(f): return open(f, 'r').read()
 
 
 setup(
