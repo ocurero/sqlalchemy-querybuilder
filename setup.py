@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
+from pypandoc import convert
+from pypandoc.pandoc_download import download_pandoc
+
+download_pandoc()
 
 requires = ['SQLAlchemy']
 
-try:
-    from pypandoc import convert
-    def read_md(f): return convert(f, 'rst', 'md')
 
-except ImportError:
-    print("warning: pypandoc module not found, convert Markdown to RST failed")
-    def read_md(f): return open(f, 'r').read()
+def read_md(f):
+    return convert(f, 'rst', 'md')
 
 
 setup(
