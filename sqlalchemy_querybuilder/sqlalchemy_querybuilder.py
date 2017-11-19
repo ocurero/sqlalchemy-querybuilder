@@ -39,10 +39,9 @@ class Filter(object):
                         model_dict[table.name] = attr
                     except sqlalchemy.exc.NoInspectionAvailable:
                         pass
+            self.models = model_dict
         else:
             self.models = dict(models)
-        self.models = model_dict
-        print(self.models)
         self.query = query
         self.operators = operators if operators else OPERATORS
 
@@ -62,7 +61,10 @@ class Filter(object):
                     model = self.models[cond['field'].split('.')[0]]
                 except KeyError:
                     raise TableNotFoundError(cond['field'].split('.')[0])
-                if model not in query._entities:
+                for entity in query._entities:
+                    if entity.mapper.class_ == model:
+                        break
+                else:
                     query = query.add_entity(model)
                 value = cond['value']
                 operator = cond['operator']
@@ -83,7 +85,7 @@ class Filter(object):
                 query, cond_subrule = self._make_query(query, cond)
                 if cond["condition"] == "OR":
                     operator = or_
-                    if len(cond_subrule) == 1:
+                    if len(cond_subrule) < 0:
                         # if this subgroup has only 1 condition, append it
                         # to the parent group
                         cond_subrule.append(cond_list.pop())
