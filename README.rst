@@ -56,6 +56,24 @@ Filter class
 ``Filter`` accepts two arguments, ``models`` and ``query``:
 
 -  models - can either be a module defining classes which inherit from
-   :py:func:``declarative_base`` or a dict of such classes with the name
-   of the tables as keys
+   ``declarative_base`` or a dict of such classes with the name of the tables
+   as keys.
 -  query - a SQLAlchemy query object. Optionaly loaded with some entity.
+
+Release History
+---------------
+
+0.1.2 (2017-11-19)
+==================
+
+**Bugfixes**
+
+- Fixed issue when models parameter was a dict() of classes.
+- Added missing test for models parameter
+
+0.1 (2017-07-10)
+================
+
+**Improvements**
+
+- First release

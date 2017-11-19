@@ -1,27 +1,15 @@
 from setuptools import setup, find_packages
-from pypandoc import convert
-from pypandoc.pandoc_download import download_pandoc
-import pypandoc
-
-try:
-    pypandoc.get_pandoc_version()
-except OSError:
-    download_pandoc()
 
 requires = ['SQLAlchemy']
 
 
-def read_md(f):
-    return convert(f, 'rst', 'md')
-
-
 setup(
     name='sqlalchemy-querybuilder',
-    version='0.2',
+    version='0.1.2a',
 
     license='Apache License version 2',
     description='Build sqlalchemy queries from jQuery-Query json',
-    long_description=read_md("README.md"),
+    long_description=open('README.rst').read(),
 
     author='Oscar Curero',
     author_email='oscar@curero.es',
