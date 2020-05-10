@@ -15,7 +15,7 @@ setup(
     author_email='oscar@curero.es',
     keywords=['json', 'querybuilder', 'jquery', 'sqlalchemy'],
 
-    url='https://bitbucket.org/ocurero/sqlalchemy-querybuilder',
+    url='https://hg.sr.ht/~ocurero/sqlalchemy-querybuilder',
 
     classifiers=['Development Status :: 4 - Beta',
                  'License :: OSI Approved :: Apache Software License',

@@ -1,0 +1,39 @@
+image: alpine/3.9
+packages:
+  - findutils
+  - linux-headers
+  - libffi-dev
+  - libressl-dev
+  - python3
+  - python3-dev
+# For hg-git  
+  - python
+  - python-dev
+  - py2-pip
+# Enable this to debug
+# shell: true
+secrets:
+  - 262ecd1a-0945-48f7-920f-367c59e107bc
+  - b0d8d09a-4e0b-4f81-a859-2bc11fbd1d13
+sources:
+   - hg+ssh://hg@hg.sr.ht/~ocurero/sqlalchemy-querybuilder
+tasks:
+  - sync_github: |
+      cd openbm
+      sudo pip -q install hg-git
+      echo "[extensions]" >>./.hg/hgrc
+      echo "hgext.bookmarks =" >>./.hg/hgrc
+      echo "hggit = " >>./.hg/hgrc
+      ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      hg bookmark -r default master # so a ref gets created
+      hg push git+ssh://git@github.com/ocurero/sqlalchemy-querybuilder.git || hg push git+ssh://git@github.com/ocurero/sqlalchemy-querybuilder.git | grep "no changes found"
+  - clone_github: |
+      rm -R sqlalchemy-querybuilder && git clone git@github.com:ocurero/sqlalchemy-querybuilder.git
+  - tests: |
+      cd sqlalchemy-querybuilder
+      sudo pip3 -q install coverage
+      curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+      source $HOME/.poetry/env
+      poetry install
+      poetry run coverage run --source=openbm/ -m pytest -v
+      if [ $? -eq 0 ]; then curl -s https://codecov.io/bash | bash -s -- -t @/home/build/CODECOV_TOKEN; fi
