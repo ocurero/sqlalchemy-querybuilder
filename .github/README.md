@@ -1,3 +1,6 @@
+### Warning, this repository is read-only mirror!
+*Main development is done at [sourcehut](https://github.com/ocurero/sqlalchemy-querybuilder)*
+
 SQLAlchemy query builder for jQuery QueryBuilder
 ================================================
 
@@ -62,29 +65,4 @@ Filter class
 Release History
 ---------------
 
-0.1.3 (2020-05-10)
-==================
-
-**Improvements**
-
--   Use poetry for development.
-
-**Bugfixes**
-
--   First release on sourcehut (bye bye bitbucket!).
-
-
-0.1.2 (2017-11-19)
-==================
-
-**Bugfixes**
-
--   Fixed issue when models parameter was a dict() of classes.
--   Added missing test for models parameter
-
-0.1 (2017-07-10)
-================
-
-**Improvements**
-
--   First release
+`sqlalchemy-querybuilder` repo is hosted at [sourcehut](https://github.com/ocurero/sqlalchemy-querybuilder)

@@ -35,5 +35,5 @@ tasks:
       curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
       source $HOME/.poetry/env
       poetry install
-      poetry run coverage run --source=openbm/ -m pytest -v
+      poetry run coverage run --source=sqlalchemy-querybuilder/ -m pytest -v
       if [ $? -eq 0 ]; then curl -s https://codecov.io/bash | bash -s -- -t @/home/build/CODECOV_TOKEN; fi
