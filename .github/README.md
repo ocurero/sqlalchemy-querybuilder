@@ -1,5 +1,5 @@
-### Warning, this repository is read-only mirror!
-*Main development is done at [sourcehut](https://github.com/ocurero/sqlalchemy-querybuilder)*
+### Warning, this repository is a read-only mirror!
+*See [sourcehut](https://github.com/ocurero/sqlalchemy-querybuilder) for PR and latest news*
 
 SQLAlchemy query builder for jQuery QueryBuilder
 ================================================
