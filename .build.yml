@@ -14,7 +14,7 @@ packages:
 # shell: true
 secrets:
   - 262ecd1a-0945-48f7-920f-367c59e107bc
-  - b0d8d09a-4e0b-4f81-a859-2bc11fbd1d13
+  - 0e73e604-2a62-48ae-b5b6-9b6b0e09fc4d
 sources:
    - hg+ssh://hg@hg.sr.ht/~ocurero/sqlalchemy-querybuilder
 tasks:
