@@ -2,7 +2,7 @@ SQLAlchemy query builder for jQuery QueryBuilder
 ================================================
 
 [![builds.sr.ht
-status](https://builds.sr.ht/~ocurero/sqlalchemy-querybuilder/.build.yml.svg)](https://builds.sr.ht/~ocurero/sqlalchemy-querybuilder/.build.yml?)
+status](https://builds.sr.ht/~ocurero/sqlalchemy-querybuilder/.build.yml.svg)](https://builds.sr.ht/~ocurero/sqlalchemy-querybuilder/.build.yml?) [![codecov](https://codecov.io/gh/ocurero/sqlalchemy-querybuilder/branch/master/graph/badge.svg)](https://codecov.io/gh/ocurero/sqlalchemy-querybuilder)
 
 This package implements a sqlalchemy query builder for json data
 generated with (but not limited to) [`jQuery QueryBuilder`](http://querybuilder.js.org/).
