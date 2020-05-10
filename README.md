@@ -3,7 +3,7 @@ SQLAlchemy query builder for jQuery QueryBuilder
 
 This package implements a sqlalchemy query builder for json data
 generated with (but not limited to)
-`jQuery QueryBuilder <http://querybuilder.js.org/>`\_\_.
+`jQuery QueryBuilder <http://querybuilder.js.org/>`.
 
 Installation
 ------------
@@ -45,7 +45,7 @@ omitted:
 -   `type`
 -   `input`
 
-WARNING ~~~\~~~~
+WARNING ~~~
 
 sqlalchemy-querybuilder does not do any kind of json validation.
 

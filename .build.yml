@@ -19,7 +19,7 @@ sources:
    - hg+ssh://hg@hg.sr.ht/~ocurero/sqlalchemy-querybuilder
 tasks:
   - sync_github: |
-      cd openbm
+      cd sqlalchemy-querybuilder
       sudo pip -q install hg-git
       echo "[extensions]" >>./.hg/hgrc
       echo "hgext.bookmarks =" >>./.hg/hgrc
