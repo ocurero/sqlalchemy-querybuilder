@@ -2,13 +2,11 @@ SQLAlchemy query builder for jQuery QueryBuilder
 ================================================
 
 This package implements a sqlalchemy query builder for json data
-generated with (but not limited to)
-`jQuery QueryBuilder <http://querybuilder.js.org/>`.
+generated with (but not limited to) [`jQuery QueryBuilder`](http://querybuilder.js.org/).
+
 
 Installation
 ------------
-
-::
 
     #!python
         pip install sqlalchemy-querybuilder
@@ -18,34 +16,32 @@ Quickstart
 
 Using **sqlalchemy-querybuilder** is very simple:
 
-::
+````python
 
-    #!python
+from sqlalchemy_querybuilder import Filter
+from myapp import models, query
 
-        from sqlalchemy_querybuilder import Filter
-        from myapp import models, query
-
-            rule = {
-                    "condition": "OR",
-                    "rules": [{
-                                "field": "mytable.myfield",
-                                "operator": "equal",
-                                "value": "foo"
-                                },
-                            ],
+    rule = {
+            "condition": "OR",
+            "rules": [{
+                       "field": "mytable.myfield",
+                       "operator": "equal",
+                       "value": "foo"
+                       },
+                      ],
             }
 
-        myfilter = Filter(models, query)
-        print(myfilter)
+    myfilter = Filter(models, query)
+    print(myfilter)
+```
 
-The following attributes from the rules are ignored and therefore can be
-omitted:
+The following attributes from the rules are ignored and therefore can be omitted:
 
 -   `id`
 -   `type`
 -   `input`
 
-WARNING ~~~
+**WARNING**
 
 sqlalchemy-querybuilder does not do any kind of json validation.
 
