@@ -43,7 +43,7 @@ tasks:
 
     poetry -q update
 
-    poetry -q install
+    poetry install
 
     poetry run coverage run --source=sqlalchemy_querybuilder -m pytest
 
