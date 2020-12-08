@@ -10,6 +10,7 @@ Base = declarative_base()
 class MyParentModel(Base):
     __tablename__ = 'test1'
     parentid = Column('test1id', Integer, primary_key=True)
+    field = Column('field', Integer)
     childs = relationship('MyChildModel')
 
     @hybrid_property
@@ -25,5 +26,6 @@ class MyParentModel(Base):
 class MyChildModel(Base):
     __tablename__ = 'test2'
     childid = Column('test2id', Integer, primary_key=True)
+    field = Column('field', Integer)
     parentid = Column('parentid', Integer, ForeignKey('test1.test1id'),
                       primary_key=True)

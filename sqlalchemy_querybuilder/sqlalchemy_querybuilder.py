@@ -57,6 +57,9 @@ class Filter(object):
         cond_list = []
         for cond in rules['rules']:
             if 'condition' not in cond:
+                operator = cond['operator']
+                if operator not in OPERATORS:
+                    raise NotImplementedError
                 try:
                     model = self.models[cond['field'].split('.')[0]]
                 except KeyError:
@@ -66,30 +69,18 @@ class Filter(object):
                         break
                 else:
                     query = query.add_entity(model)
-                value = cond['value']
-                operator = cond['operator']
-                try:
-                    field = getattr(model, cond['field'].split('.')[1])
-                except AttributeError as e:
-                    raise e
-                if operator not in OPERATORS:
-                    raise NotImplementedError
-                else:
-                    function = OPERATORS[operator]
+                field = getattr(model, cond['field'].split('.')[1])
+                function = OPERATORS[operator]
                 arity = len(signature(function).parameters)
                 if arity == 1:
                     cond_list.append(function(field))
                 elif arity == 2:
-                    cond_list.append(function(field, value))
+                    cond_list.append(function(field, cond['value']))
             else:
                 query, cond_subrule = self._make_query(query, cond)
                 if cond["condition"] == "OR":
                     operator = or_
-                    if len(cond_subrule) < 0:
-                        # if this subgroup has only 1 condition, append it
-                        # to the parent group
-                        cond_subrule.append(cond_list.pop())
                 else:
                     operator = and_
-                query = query.filter(operator(*cond_subrule))
+                cond_list.append(operator(*cond_subrule))
         return query, cond_list
