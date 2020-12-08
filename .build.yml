@@ -29,11 +29,24 @@ tasks:
       hg push git+ssh://git@github.com/ocurero/sqlalchemy-querybuilder.git || hg push git+ssh://git@github.com/ocurero/sqlalchemy-querybuilder.git | grep "no changes found"
   - clone_github: |
       rm -R sqlalchemy-querybuilder && git clone git@github.com:ocurero/sqlalchemy-querybuilder.git
-  - tests: |
-      cd sqlalchemy-querybuilder
-      sudo pip3 -q install coverage
-      curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-      source $HOME/.poetry/env
-      poetry install
-      poetry run coverage run --source=sqlalchemy_querybuilder/ -m pytest -v
-      if [ $? -eq 0 ]; then curl -s https://codecov.io/bash | bash -s -- -t @/home/build/CODECOV_TOKEN; fi
+  - mkvenv: 'python3 -m venv CI'
+  - tests: 'source CI/bin/activate
+
+    cd sqlalchemy-querybuilder
+
+    pip install --quiet --upgrade pip coverage
+
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py
+    | python
+
+    source $HOME/.poetry/env
+
+    poetry -q update
+
+    poetry install
+
+    poetry run coverage run --source=sqlalchemy-querybuilder/ -m pytest
+
+    if [ $? -eq 0 ]; then curl -s https://codecov.io/bash | bash -s -- -Z -t @/home/build/CODECOV_TOKEN;
+    fi'
+triggers: null
