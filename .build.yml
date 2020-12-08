@@ -45,7 +45,7 @@ tasks:
 
     poetry -q install
 
-    poetry run coverage run --source=sqlalchemy-querybuilder/ -m pytest
+    poetry run coverage run --source=sqlalchemy_querybuilder -m pytest
 
     if [ $? -eq 0 ]; then curl -s https://codecov.io/bash | bash -s -- -Z -t @/home/build/CODECOV_TOKEN;
     fi'
