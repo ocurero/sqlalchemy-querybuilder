@@ -1,0 +1,18 @@
+site_name: sqlalchemy-querybuilder
+site_description: sqlalchemy-querybuilder builds queries from jquery QueryBuilder
+site_author: Óscar Curero
+theme:
+    name: readthedocs
+    titles_only: true
+nav:
+    - Home: index.md
+    - Usage: usage.md
+    - Contributing: contributing.md
+    - Credits: credits.md
+    - History: history.md
+
+markdown_extensions:
+    - admonition
+    - markdown_include.include:
+        base_path: docs
+        throwException: true
