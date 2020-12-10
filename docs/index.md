@@ -1,6 +1,6 @@
 # Welcome to sqlalchemy-querybuilder’s documentation
 
-sqlalchemy-querybuilder is a package that implements a sqlalchemy query builder for json
+sqlalchemy-querybuilder is a package that implements a sqlalchemy query builder for 
 rules generated with (but not limited to)
 [jQuery QueryBuilder](http://querybuilder.js.org/).
 
@@ -12,7 +12,7 @@ rules generated with (but not limited to)
 * Open Source: Apache 2.0 license.
 * Website: <https://sr.ht/~ocurero/sqlalchemy-querybuilder/>.
 * Documentation: <https://sqlalchemy-querybuilder.readthedocs.io/>.
-* Repository: <https://hg.sr.ht/~ocurero/sqlalchemy-querybuilder>.
+* Repository (mercurial): <https://hg.sr.ht/~ocurero/sqlalchemy-querybuilder>.
 
 ## Quick start
 

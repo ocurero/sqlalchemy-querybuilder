@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at <https://sr.ht/~ocurero/sqlalchemy-querybuilder/trackers>.
+Report bugs at <https://todo.sr.ht/~ocurero/sqlalchemy-querybuilder>.
 
 If you are reporting a bug, please include:
 
