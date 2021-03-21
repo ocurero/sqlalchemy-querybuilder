@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sqlalchemy-querybuilder"
-version = "0.1.4"
+version = "0.1.5"
 description = "Build sqlalchemy queries from jQuery-Query json"
 authors = ["Oscar Curero <oscar@curero.es>"]
 license = "Apache-2.0"

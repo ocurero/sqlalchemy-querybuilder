@@ -1,5 +1,16 @@
 # History
 
+## 0.1.5 (2021-03-21)
+
+#### Features
+
+*   Use tox to test sqlalchemy 1.3 and 1.4.
+
+#### Bugfixes
+
+*   Fix adding entities when using SA 1.4.
+
+
 ## 0.1.4 (2020-12-10)
 
 #### Features
