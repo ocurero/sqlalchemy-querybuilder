@@ -36,8 +36,8 @@ tasks:
       poetry install --quiet
       poetry run tox
   - update_readthedocs: |
-      curl -X POST -d @~/RTD_TOKEN https://readthedocs.org/api/v2/webhook/sqlalchemy-querybuilder/139469/
+      curl -X POST -d @/home/build/RTD_TOKEN https://readthedocs.org/api/v2/webhook/sqlalchemy-querybuilder/139469/
   - upload_codecov: |
       cd sqlalchemy-querybuilder && sudo pip3 -q install coverage
-      curl -s https://codecov.io/bash | bash -s -- -Z -t @~/CODECOV_TOKEN'
+      curl -s https://codecov.io/bash | bash -s -- -Z -t @/home/build/CODECOV_TOKEN
 triggers: null
