@@ -37,7 +37,7 @@ tasks:
 
     poetry install --quiet
 
-    tox
+    poetry run tox
 
     if [ $? -eq 0 ]; then curl -s https://codecov.io/bash | bash -s -- -Z -t @/home/build/CODECOV_TOKEN;
     fi'
