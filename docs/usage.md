@@ -36,7 +36,7 @@ Filter class accepts three parameters:
  
 ## Examples
 
-Given the file `module.py` containing the following mappings:
+Given the file `models.py` containing the following mappings:
 ```python
 from sqlalchemy import Column, Integer
 from sqlalchemy.ext.declarative import declarative_base
@@ -54,7 +54,7 @@ You could use sqlalchemy-querybuild like:
 
 ```python
 from sqlalchemy_querybuilder import Filter
-import model
+import models
 
 rule = {
         "condition": "OR",
@@ -68,7 +68,7 @@ rule = {
                    },
                   ],
 }
-filter = Filter(model, session.query())
+filter = Filter(models, session.query())
 print(filter.querybuilder(rule)
 ```
 
@@ -77,7 +77,7 @@ print(filter.querybuilder(rule)
 ```python
 from sqlalchemy.orm import Session
 from sqlalchemy_querybuilder import Filter
-import model
+import models
 
 rule = {
         "condition": "OR",
@@ -91,7 +91,7 @@ rule = {
                    },
                   ],
 }
-filter = Filter({"test1": model.MyModel}, session.query())
+filter = Filter({"test1": models.MyModel}, session.query())
 print(filter.querybuilder(rule)
 ```
 
@@ -99,7 +99,7 @@ print(filter.querybuilder(rule)
 
 ```python
 from sqlalchemy_querybuilder import Filter
-import model
+import models
 import other
 
 rule = {
@@ -114,6 +114,6 @@ rule = {
                    },
                   ],
 }
-filter = Filter(model, session.query(other.MyOtherModel))
+filter = Filter(models, session.query(other.MyOtherModel))
 print(filter.querybuilder(rule)
 ```
