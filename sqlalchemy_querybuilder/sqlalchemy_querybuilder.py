@@ -42,6 +42,7 @@ class Filter(object):
             self.models = model_dict
         else:
             self.models = dict(models)
+        print(self.models)
         self.query = query
         self.operators = operators if operators else OPERATORS
 
@@ -64,9 +65,9 @@ class Filter(object):
                     model = self.models[cond['field'].split('.')[0]]
                 except KeyError:
                     raise TableNotFoundError(cond['field'].split('.')[0])
-                for entity in query._entities:
-                    if entity.mapper.class_ == model:
-                        break
+                for table in query.column_descriptions:
+                   if table['entity'] == model:
+                       break
                 else:
                     query = query.add_entity(model)
                 field = getattr(model, cond['field'].split('.')[1])
