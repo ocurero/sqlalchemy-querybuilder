@@ -25,6 +25,7 @@ pytest = "*"
 coverage = "^5.1"
 mkdocs = "^1.1.2"
 markdown-include = "^0.6.0"
+tox = "^3.23.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
