@@ -9,14 +9,14 @@ def engine():
     return create_engine('sqlite://')
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.fixture(scope='session')
 def tables(engine):
     Base.metadata.create_all(engine)
     yield
     Base.metadata.drop_all(engine)
 
 
-@pytest.yield_fixture
+@pytest.fixture
 def query(engine, tables):
     """Returns an sqlalchemy query object"""
     connection = engine.connect()
