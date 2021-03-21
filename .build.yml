@@ -35,9 +35,9 @@ tasks:
       source $HOME/.poetry/env
       poetry install --quiet
       poetry run tox
-  - ReadTheDocs: |
+  - update_readthedocss: |
       curl -X POST -d @~/RTD_TOKEN https://readthedocs.org/api/v2/webhook/sqlalchemy-querybuilder/139469/
-  - codecov: |
+  - upload_codecov: |
       poetry shell
       curl -s https://codecov.io/bash | bash -s -- -Z -t @~/CODECOV_TOKEN'
 triggers: null
