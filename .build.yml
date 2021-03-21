@@ -29,15 +29,15 @@ tasks:
       hg push git+ssh://git@github.com/ocurero/sqlalchemy-querybuilder.git || hg push git+ssh://git@github.com/ocurero/sqlalchemy-querybuilder.git | grep "no changes found"
   - clone_github: |
       rm -R sqlalchemy-querybuilder && git clone git@github.com:ocurero/sqlalchemy-querybuilder.git
-  - tests: |
+  - pass_tests: |
       cd sqlalchemy-querybuilder
       curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
       source $HOME/.poetry/env
       poetry install --quiet
       poetry run tox
-  - update_readthedocss: |
+  - update_readthedocs: |
       curl -X POST -d @~/RTD_TOKEN https://readthedocs.org/api/v2/webhook/sqlalchemy-querybuilder/139469/
   - upload_codecov: |
-      poetry shell
+      cd sqlalchemy-querybuilder && sudo pip3 -q install coverage
       curl -s https://codecov.io/bash | bash -s -- -Z -t @~/CODECOV_TOKEN'
 triggers: null
